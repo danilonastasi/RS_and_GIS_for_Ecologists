@@ -35,3 +35,9 @@ par(mfrow=c(1,2))
 plot(italycrop, col=cl, 10) # October
 plot(italycrop, col=cl, 11) # November
 
+# let's try with Sicily
+extsic <- c(12, 16, 35, 39)
+siccrop <- crop(prec, extsic)
+plot(siccrop,col=cl)
+
+
