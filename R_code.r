@@ -1,7 +1,7 @@
 
 # R Version in use: 4.3.2 - 2023/10/31
 
-# paragraph 3.1.2 
+# book: RS and GIS for Ecologists - paragraph 3.1.2 
 #### code ####
 
 #### let us download the vector outline of the administrative boundaries of Brazil ####
