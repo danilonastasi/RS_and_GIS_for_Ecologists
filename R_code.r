@@ -19,6 +19,9 @@ x
 
 
 #### download the precipitation data from WorldClim ####
+
+# https://rdrr.io/cran/raster/man/getData.html
+# 'worldclim' is a database of global interpolated climate data: precipitation, temperature, bio, 
 prec <- getData("worldclim", var = "prec", res =2.5)
 prec
 names(prec) <- c("Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec")
