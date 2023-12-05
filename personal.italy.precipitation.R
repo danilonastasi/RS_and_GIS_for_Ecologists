@@ -18,7 +18,10 @@ x[x[, "NAME"] == "South Africa", ]
 x
 
 #### download the precipitation data from WorldClim ####
-prec <- getData("worldclim", var = "prec", res =2.5)
+
+# https://rdrr.io/cran/raster/man/getData.html
+# 'worldclim' is a database of global interpolated climate data: precipitation, temperature, bio, 
+prec <- getData("worldclim", var = "prec", res =2.5)  # 'worldclim' is a database of global interpolated climate data
 prec
 
 # let's crop in order to show data just for Italy
