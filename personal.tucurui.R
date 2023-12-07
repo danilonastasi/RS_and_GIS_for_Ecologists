@@ -7,7 +7,7 @@ setwd("C:/spatial_ecology/Downloads/tucurui")
 # data in this code were get from the websire:
 # https://earthexplorer.usgs.gov/
 # 29/07/2011 data set Landsat 4-5 TM C2 L1
-# Path: 224 Row: 062
+# Path: 224 Row: 063
 
 vlist2011 <- list.files(pattern="LT05_L1TP_224063_20110729_20200820_02_T1_B") # we list 7 bands
 # band 1 blue
