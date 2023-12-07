@@ -1,7 +1,9 @@
 
 # R Version in use: 4.3.2 - 2023/10/31
 
-# book: RS and GIS for Ecologists - paragraph 3.1.2 
+########### book: RS and GIS for Ecologists - paragraph 3.1.2 ################
+###########                                                   ################
+
 #### code ####
 
 #### let us download the vector outline of the administrative boundaries of Brazil ####
@@ -40,6 +42,20 @@ library(sf)
 # studyarea <- readOGR("vector_data/", "study_area_11") becomes:
 studyarea <- st_read("c:...filepath")
 
+########### book: RS and GIS for Ecologists - paragraph 3.2.1 ################
+###########                                                   ################
+
+# exporting, from USGS, landsat results as a comma separated value file, zip file, txt file, saving in our drive:
+
+zipfiles <- list.files(path = "C:/Users/danil/Downloads/landsat/usgsexport", pattern = ".zip", full.names = TRUE)
+# unzip:
+eeResults <- lapply(zipfiles, unzip, exdir = "C:/Users/danil/Downloads/landsat/usgsexport")
+
+# EEdatatable <- read.table("C:/Users/danil/Downloads/landsat/usgsexport/landsat_tm_c2_l1_6571f99e3ee92d9c.txt", sep=",", header=FALSE)
+# read.table looks similar result with read.csv
+
+EEdatacsv <- read.csv("C:/Users/danil/Downloads/landsat/usgsexport/landsat_tm_c2_l1_6571f99e3ee92d9c.txt", sep=",", header=FALSE)
+head(EEdatacsv,10)  # let's show the first 10 rows
 
 
 
