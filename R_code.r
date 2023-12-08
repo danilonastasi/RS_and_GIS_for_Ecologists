@@ -18,14 +18,23 @@ head(gps_in)
 summary(gps_in)
 plot(gps_in)
 
-eels <- read.csv("landsat_tm_c2_l1_65724d0b5b92cf1.csv", sep = ",", header = FALSE)
+# eels <- read.csv("landsat_tm_c2_l1_65724d0b5b92cf1.csv", sep = ",", header = FALSE)
+eels <- read.csv("landsat_tm_c2_l1_6571f99e3ee92d9c.txt", sep = ",", header = TRUE , fileEncoding="latin1")
 
 ### to test, it does not work with csv landsata data, we should clean ###
 ### this csv file, converting probably in a data frame ###
-ggplot(subset(eels, V27 > 51 & V16 < 20)) +
-geom_tile(aes(x = V16, y = V27, alpha = V16, fill = 
-              V31), width = 1, linewidth = 1) +
-scale_alpha_continuous(name = "V16 ", range = c(1, 0.5))
+ggplot(subset(eels, WRS.Row  < 63 & Land.Cloud.Cover < 20)) +
+geom_tile(aes(x = Land.Cloud.Cover, y = WRS.Row, alpha = Land.Cloud.Cover, fill = 
+              Satellite), width = 2, linewidth = 2) +
+scale_alpha_continuous(name = "Land.Cloud.Cover ", range = c(1, 0.5))
+
+ggplot(data = eels, mapping = aes(x = Land.Cloud.Cover, y = WRS.Row)) +
+geom_point()
+
+for (x in 1:960) {
+   if (eels$Land.Cloud.Cover[x] < 3) {
+      print(eels[x, 1:4]) }
+}
 
 
 ### let's try to plot like in the book example, using a data frame penguins ###
@@ -96,7 +105,7 @@ eeResults <- lapply(zipfiles, unzip, exdir = "C:/Users/danil/Downloads/landsat/u
 # eedatatable <- read.table("C:/Users/danil/Downloads/landsat/usgsexport/landsat_tm_c2_l1_6571f99e3ee92d9c.txt", sep=",", header=FALSE)
 # read.table looks similar result with read.csv
 
-eedatacsv <- read.csv("C:/Users/danil/Downloads/landsat/usgsexport/landsat_tm_c2_l1_6571f99e3ee92d9c.txt", sep=",", header=FALSE)
+eedatacsv <- read.csv("C:/Users/danil/Downloads/landsat/usgsexport/landsat_tm_c2_l1_6571f99e3ee92d9c.txt", sep=",", header = TRUE , fileEncoding="latin1")
 head(eedatacsv,10)  # let's show the first 10 rows
 
 
