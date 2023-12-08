@@ -88,10 +88,16 @@ plot(prec, 1) # January
 #### Consider using 'sf' or 'terra' instead.
 # st_read: Read simple features or layers from file or database
 
-# library(rgdal) becomes:
+# rgdal package is not working anynmore:
+https://www.r-bloggers.com/2023/06/upcoming-changes-to-popular-r-packages-for-spatial-data-what-you-need-to-do/
+# library(rgdal) becomes: 
 library(sf)
+setwd("C:/Users/danil/Documents/esercitazioniR")
 # studyarea <- readOGR("vector_data/", "study_area_11") becomes:
-studyarea <- st_read("c:...filepath")
+studyareasf <- read_sf("sample-marks-of-field-trip-with-j-birrell.csv")
+# or
+library(terra)
+studyareaterra <- vect("sample-marks-of-field-trip-with-j-birrell.csv")
 
 ########### book: RS and GIS for Ecologists - paragraph 3.2.1 ################
 ###########                                                   ################
@@ -126,4 +132,12 @@ location <- town %>% opq()
 # second option (recommended)
 coords <- matrix(c(-0.1,-0.07,51.5,51.52), byrow = TRUE, nrow = 2, ncol = 2, dimnames = list(c('x','y'),c('min','max'))) 
 location <- coords %>% opq()
+
+
+
+
+
+
+
+
 
