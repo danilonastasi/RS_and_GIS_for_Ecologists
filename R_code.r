@@ -109,6 +109,21 @@ eedatacsv <- read.csv("C:/Users/danil/Downloads/landsat/usgsexport/landsat_tm_c2
 head(eedatacsv,10)  # let's show the first 10 rows
 
 
+########### book: RS and GIS for Ecologists - paragraph 3.3.2 ################
+###########                                                   ################
 
+# using OpenStreetMap package
+# https://cran.r-project.org/web/packages/osmdata/index.html
 
+# first option (not recommended in this case)
+library(osmdata)
+library(tidyverse)
+library(sf)
+
+town <- 'London' 
+location <- town %>% opq()
+
+# second option (recommended)
+coords <- matrix(c(-0.1,-0.07,51.5,51.52), byrow = TRUE, nrow = 2, ncol = 2, dimnames = list(c('x','y'),c('min','max'))) 
+location <- coords %>% opq()
 
