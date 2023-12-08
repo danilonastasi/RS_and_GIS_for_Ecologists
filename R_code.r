@@ -6,6 +6,38 @@
 
 #### code ####
 
+# set working directory where we stored files
+setwd("C:/Users/danil/Documents/esercitazioniR")
+
+library(sp)
+# download data csv sample from 
+# https://gist.github.com/bigwestern/1c563bc1e389ea8eea711c4435b01306
+# move the file to the working directory
+gps_in <- read.csv("sample-marks-of-field-trip-with-j-birrell.csv")
+head(gps_in)
+summary(gps_in)
+plot(gps_in)
+
+### let's try to plot like in the book example, using a data frame penguins ###
+# install.packages("tidyverse")
+library(tidyverse)
+
+# install.packages("palmerpenguins")
+library(palmerpenguins)
+
+# install.packages("ggthemes")
+library(ggthemes)
+
+penguins
+glimpse(penguins)
+
+ggplot(subset(penguins, year < 2023 & flipper_length_mm > 120)) +
+geom_tile(aes(x = flipper_length_mm, y = year, alpha = flipper_length_mm, fill = 
+              species), width = 1, linewidth = 1) +
+scale_alpha_continuous(name = "flipper_length_mm ", range = c(1, 0.5))
+
+
+  
 #### let us download the vector outline of the administrative boundaries of Brazil ####
 
 # install.packages("raster")
@@ -58,11 +90,6 @@ eedatacsv <- read.csv("C:/Users/danil/Downloads/landsat/usgsexport/landsat_tm_c2
 head(eedatacsv,10)  # let's show the first 10 rows
 
 
-# temp, to test #
-ggplot(subset(eedatacsv, path = 224 & row = 63 & Cloud Cover < 20)) +
-   geom_tile(aes(x = Doy, alpha = Cloud Cover,
-                 fill = Satellite), width = 2, size = 2) +
-   scale_y_continuous(breaks = c(2001:2011)) +
-   scale_alpha_continuous(name = "Cloud Cover (%)", range = c(1, 0.5))
+
 
 
