@@ -18,6 +18,16 @@ head(gps_in)
 summary(gps_in)
 plot(gps_in)
 
+eels <- read.csv("landsat_tm_c2_l1_65724d0b5b92cf1.csv", sep = ",", header = FALSE)
+
+### to test, it does not work with csv landsata data, we should clean ###
+### this csv file, converting probably in a data frame ###
+ggplot(subset(eels, V27 > 51 & V16 < 20)) +
+geom_tile(aes(x = V16, y = V27, alpha = V16, fill = 
+              V31), width = 1, linewidth = 1) +
+scale_alpha_continuous(name = "V16 ", range = c(1, 0.5))
+
+
 ### let's try to plot like in the book example, using a data frame penguins ###
 # install.packages("tidyverse")
 library(tidyverse)
