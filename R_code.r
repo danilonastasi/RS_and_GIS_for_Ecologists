@@ -90,7 +90,7 @@ plot(prec, 1) # January
 # st_read: Read simple features or layers from file or database
 
 # rgdal package is not working anynmore:
-https://www.r-bloggers.com/2023/06/upcoming-changes-to-popular-r-packages-for-spatial-data-what-you-need-to-do/
+# https://www.r-bloggers.com/2023/06/upcoming-changes-to-popular-r-packages-for-spatial-data-what-you-need-to-do/
 # library(rgdal) becomes: 
 library(sf)
 setwd("C:/Users/danil/Documents/esercitazioniR")
